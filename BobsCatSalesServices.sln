@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A592F6A1-A44A-4AB4-87F1-5F58468100BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tst", "tst", "{50F774B6-38CC-4296-9563-E80EA6267E59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{0DA0F092-B135-4527-8D10-A98E2314D149}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{2DD5E82E-6882-4059-BA28-A163DAC77A7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{ED71355C-618E-4618-A9F7-795346927BB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Application", "src\core\zs.bcs.BobsCatSalesServices.Application\zs.bcs.BobsCatSalesServices.Application.csproj", "{096C65D4-9351-4493-B39F-39686BD34923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Domain", "src\core\zs.bcs.BobsCatSalesServices.Domain\zs.bcs.BobsCatSalesServices.Domain.csproj", "{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Events", "src\core\zs.bcs.BobsCatSalesServices.Events\zs.bcs.BobsCatSalesServices.Events.csproj", "{C46DF83D-AE5A-43D8-B677-F165EA766D44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{096C65D4-9351-4493-B39F-39686BD34923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096C65D4-9351-4493-B39F-39686BD34923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096C65D4-9351-4493-B39F-39686BD34923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096C65D4-9351-4493-B39F-39686BD34923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46DF83D-AE5A-43D8-B677-F165EA766D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46DF83D-AE5A-43D8-B677-F165EA766D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46DF83D-AE5A-43D8-B677-F165EA766D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46DF83D-AE5A-43D8-B677-F165EA766D44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DA0F092-B135-4527-8D10-A98E2314D149} = {A592F6A1-A44A-4AB4-87F1-5F58468100BC}
+		{7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB} = {A592F6A1-A44A-4AB4-87F1-5F58468100BC}
+		{2DD5E82E-6882-4059-BA28-A163DAC77A7C} = {A592F6A1-A44A-4AB4-87F1-5F58468100BC}
+		{ED71355C-618E-4618-A9F7-795346927BB1} = {7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}
+		{096C65D4-9351-4493-B39F-39686BD34923} = {0DA0F092-B135-4527-8D10-A98E2314D149}
+		{491EECCD-5D9A-4E33-AB99-A3CC10EC8CFC} = {0DA0F092-B135-4527-8D10-A98E2314D149}
+		{C46DF83D-AE5A-43D8-B677-F165EA766D44} = {0DA0F092-B135-4527-8D10-A98E2314D149}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {081D0852-1AD1-4D21-935D-7E010ABC6564}
+	EndGlobalSection
+EndGlobal

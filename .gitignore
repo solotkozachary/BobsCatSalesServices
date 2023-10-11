@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/core/zs.bcs.BobsCatSalesServices.Application/bin/Debug/net6.0
+/src/core/zs.bcs.BobsCatSalesServices.Application/obj
+/src/core/zs.bcs.BobsCatSalesServices.Domain/bin/Debug/net6.0
+/src/core/zs.bcs.BobsCatSalesServices.Domain/obj
+/src/core/zs.bcs.BobsCatSalesServices.Events/bin/Debug/net6.0
+/src/core/zs.bcs.BobsCatSalesServices.Events/obj
