@@ -8,14 +8,8 @@ namespace zs.bcs.BobsCatSalesServices.Application.Exceptions
     /// </summary>
     public class ApplicationException : Exception
     {
-        public ApplicationException(ApplicationConcern concern, ApplicationRules rule, string message) : base(message)
-        {
-            // TODO : Custom application exception building. exception can be against a calico-specific process or entity.
-        }
+        public ApplicationException(ApplicationConcern concern, ApplicationRules rule, string message) : base(message) { }
 
-        public ApplicationException(ApplicationConcern concern, ApplicationRules rule, string message, Exception innerException) : base(message, innerException)
-        {
-            // TODO : Custom application exception building. exception can be against a calico-specific process or entity.
-        }
+        public ApplicationException(ApplicationConcern concern, ApplicationRules rule, string message, Exception innerException) : base(message, innerException) { }
     }
 }

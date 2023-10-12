@@ -6,7 +6,7 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
     /// <summary>
     /// Represents an associate of Bob's Cat Sales.
     /// </summary>
-    public class SalesAssociate
+    public class SalesAssociate : BobsCatSalesEntity
     {
         /// <summary>
         /// The person's name.
