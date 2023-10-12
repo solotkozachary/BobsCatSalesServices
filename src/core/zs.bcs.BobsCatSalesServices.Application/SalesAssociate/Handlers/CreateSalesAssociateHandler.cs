@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using zs.bcs.BobsCatSalesServices.Application.Entity.Commands;
 using zs.bcs.BobsCatSalesServices.Application.Enumerations;
-using zs.bcs.BobsCatSalesServices.Application.Exceptions;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssociate;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Services;
 using zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Commands;
