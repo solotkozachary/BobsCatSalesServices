@@ -3,6 +3,9 @@ using zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Queries;
 
 namespace zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Validators
 {
+    /// <summary>
+    /// Validates queries to get sales associate by email.
+    /// </summary>
     public class GetSalesAssociateByEmailValidators : AbstractValidator<GetSalesAssociateByEmailQuery>
     {
         public GetSalesAssociateByEmailValidators()

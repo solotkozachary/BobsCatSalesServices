@@ -11,5 +11,10 @@ namespace zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Queries
         /// The email address to search by.
         /// </summary>
         public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Flag to indicate entity must exist.
+        /// </summary>
+        public bool MustExist { get; set; }
     }
 }
