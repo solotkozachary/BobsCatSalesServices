@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\Persistence\" />
-    <Folder Include="SalesAssociate\" />
+    <Folder Include="SalesAssociate\Handlers\" />
   </ItemGroup>
 
 </Project>

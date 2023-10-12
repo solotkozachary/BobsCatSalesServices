@@ -22,5 +22,10 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// The person's phone numbers.
         /// </summary>
         public IEnumerable<Phone> PhoneNumbers { get; set; }
+
+        /// <summary>
+        /// The person's email addresses.
+        /// </summary>
+        public IEnumerable<Email> EmailAddresses { get; set; }
     }
 }
