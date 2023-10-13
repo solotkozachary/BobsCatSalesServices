@@ -25,17 +25,17 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity
         {
             if (obj != null)
             {
-                if (obj is BobsCatSalesEntity entity)
-                {
-                    if (!entityKeys.Contains(entity.EntityKey))
-                    {
-                        entityKeys.Add(entity.EntityKey);
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
+                //if (obj is BobsCatSalesEntity entity)
+                //{
+                //    if (!entityKeys.Contains(entity.EntityKey))
+                //    {
+                //        entityKeys.Add(entity.EntityKey);
+                //    }
+                //    else
+                //    {
+                //        return;
+                //    }
+                //}
 
                 var properties = obj.GetType().GetProperties();
 

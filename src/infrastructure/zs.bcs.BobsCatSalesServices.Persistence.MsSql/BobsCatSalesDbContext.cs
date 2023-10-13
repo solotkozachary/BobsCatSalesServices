@@ -85,12 +85,12 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
             if (environment == "Development")
             {
                 var connectionString = configuration.GetConnectionString("InMemAppDb");
-                optionsBuilder.UseInMemoryDatabase(connectionString);
+                optionsBuilder.UseLazyLoadingProxies().UseInMemoryDatabase(connectionString);
             }
             else
             {
                 var connectionString = configuration.GetConnectionString("AppDb");
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
             }
         }
     }

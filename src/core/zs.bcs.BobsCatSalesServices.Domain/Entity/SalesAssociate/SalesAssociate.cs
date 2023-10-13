@@ -12,22 +12,22 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// The person's name.
         /// </summary>
-        public PersonalDesignation PersonalDesignation { get; set; }
+        public virtual PersonalDesignation PersonalDesignation { get; set; }
 
         /// <summary>
         /// The person's addresses.
         /// </summary>
-        public IEnumerable<Address> Addresses { get; set; }
+        public virtual IEnumerable<Address> Addresses { get; set; }
 
         /// <summary>
         /// The person's phone numbers.
         /// </summary>
-        public IEnumerable<Phone> PhoneNumbers { get; set; }
+        public virtual IEnumerable<Phone> PhoneNumbers { get; set; }
 
         /// <summary>
         /// The person's email addresses.
         /// </summary>
-        public IEnumerable<Email> EmailAddresses { get; set; }
+        public virtual IEnumerable<Email> EmailAddresses { get; set; }
 
         /// <summary>
         /// The last time the sales associate successfully logged into the system.

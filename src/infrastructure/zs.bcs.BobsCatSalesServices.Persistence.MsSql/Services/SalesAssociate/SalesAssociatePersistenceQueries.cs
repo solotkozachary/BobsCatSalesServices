@@ -29,10 +29,10 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.Services.SalesAssociate
             _logger.LogTrace("Enter GetSalesAssociateByEmail");
 
             var entity = _context.SalesAssociates
-                .Include(x => x.PersonalDesignation)
-                .Include(x => x.PhoneNumbers)
-                .Include(x => x.EmailAddresses)
-                .Include(x => x.Addresses)
+                //.Include(x => x.PersonalDesignation)
+                //.Include(x => x.PhoneNumbers)
+                //.Include(x => x.EmailAddresses)
+                //.Include(x => x.Addresses)
                 .Where(x => x.EmailAddresses.Where(y => y.EmailAddress == emailAddress).Any()).FirstOrDefault()
                 ;
 
