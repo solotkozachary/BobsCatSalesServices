@@ -6,6 +6,7 @@ using zs.bcs.BobsCatSalesServices.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Register Bob's Cat Sales services.
 builder.Services.RegisterApplicationServices();
 
 builder.Services.AddControllers();

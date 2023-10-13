@@ -2,6 +2,7 @@
 using System;
 using zs.bcs.BobsCatSalesServices.Domain.Entity;
 using zs.bcs.BobsCatSalesServices.Events.Util;
+using System.Reflection;
 
 namespace zs.bcs.BobsCatSalesServices.Events
 {
@@ -17,6 +18,12 @@ namespace zs.bcs.BobsCatSalesServices.Events
         public AbstractEvent(U data)
         {
             EventPayload = data;
+
+            // Set up static utils to provide application context to events
+            EventId = Guid.NewGuid().ToString();
+            CorrelationId = Guid.NewGuid().ToString();
+            Source = Assembly.GetExecutingAssembly().GetName().Name;
+            EventDate = DateTime.Now;
         }
 
         /// <summary>
@@ -43,11 +50,6 @@ namespace zs.bcs.BobsCatSalesServices.Events
         /// The date of the event.
         /// </summary>
         public DateTime EventDate { get; set; }
-
-        /// <summary>
-        /// The publisher of the event.
-        /// </summary>
-        public string Publisher { get; set; }
 
         /// <summary>
         /// The data payload of the event.
