@@ -41,10 +41,5 @@
             Prefix = string.Empty;
             Suffix = string.Empty;
         }
-
-        /// <summary>
-        /// EF relational entity.
-        /// </summary>
-        public SalesAssociate.SalesAssociate SalesAssociate { get; set; }
     }
 }

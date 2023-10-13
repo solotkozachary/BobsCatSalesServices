@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity;
 
 namespace zs.bcs.BobsCatSalesServices.Domain.Entity
@@ -16,21 +18,33 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity
         /// <param name="entity"></param>
         public static void RemovePersonalIdentifiableInformation(this BobsCatSalesEntity entity, bool updateRecord = false, string removalReferenceId = "RemovePiiProcess")
         {
-            RemovePiiFromEntity(entity, updateRecord, removalReferenceId);
+            RemovePiiFromEntity(entity, new List<string>(), updateRecord, removalReferenceId);
         }
 
-        private static void RemovePiiFromEntity(object obj, bool updateRecord = false, string removalReferenceId = "RemovePiiProcess")
+        private static void RemovePiiFromEntity(object obj, List<string> entityKeys, bool updateRecord = false, string removalReferenceId = "RemovePiiProcess")
         {
             if (obj != null)
             {
+                if (obj is BobsCatSalesEntity entity)
+                {
+                    if (!entityKeys.Contains(entity.EntityKey))
+                    {
+                        entityKeys.Add(entity.EntityKey);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
                 var properties = obj.GetType().GetProperties();
 
                 foreach (var property in properties)
                 {
                     // Check nested properties.
-                    if (property.PropertyType.IsClass && property.PropertyType != typeof(string))
+                    if (property.PropertyType.IsClass && property.PropertyType != typeof(string) && property.PropertyType != typeof(byte[]))
                     {
-                        RemovePiiFromEntity(property.GetValue(obj));
+                        RemovePiiFromEntity(property.GetValue(obj), entityKeys);
                     }
 
                     // Remove PII from this entity.
@@ -52,6 +66,7 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity
                         }
                     }
                 }
+
             }
         }
     }

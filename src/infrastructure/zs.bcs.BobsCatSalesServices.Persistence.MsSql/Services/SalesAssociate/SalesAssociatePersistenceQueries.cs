@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,15 +24,21 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.Services.SalesAssociate
             _logger = logger;
         }
 
-        public Task<Domain.Entity.SalesAssociate.SalesAssociate> GetSalesAssociateByEmail(string emailAddress, CancellationToken cancellationToken)
+        public async Task<Domain.Entity.SalesAssociate.SalesAssociate> GetSalesAssociateByEmail(string emailAddress, CancellationToken cancellationToken)
         {
             _logger.LogTrace("Enter GetSalesAssociateByEmail");
 
-            var entity = _context.SalesAssociates.Where(x => x.EmailAddresses.Where(y => y.EmailAddress == emailAddress).Any()).FirstOrDefault();
+            var entity = _context.SalesAssociates
+                .Include(x => x.PersonalDesignation)
+                .Include(x => x.PhoneNumbers)
+                .Include(x => x.EmailAddresses)
+                .Include(x => x.Addresses)
+                .Where(x => x.EmailAddresses.Where(y => y.EmailAddress == emailAddress).Any()).FirstOrDefault()
+                ;
 
             _logger.LogTrace("Exit GetSalesAssociateByEmail");
 
-            return Task.FromResult(entity);
+            return entity;
         }
     }
 }

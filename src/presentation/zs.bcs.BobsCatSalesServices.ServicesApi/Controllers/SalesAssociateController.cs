@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
 using zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Commands;
+using zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Queries;
 using zs.bcs.BobsCatSalesServices.ServicesApi.Contracts.Requests;
 
 namespace zs.bcs.BobsCatSalesServices.ServicesApi.Controllers
@@ -40,6 +41,18 @@ namespace zs.bcs.BobsCatSalesServices.ServicesApi.Controllers
             _logger.LogTrace("Exit CreateSalesAssociate - SalesAssociateEntityKey:{SalesAssociateEntityKey}", result);
 
             return result;
+        }
+
+        [HttpGet(Name = "GetSalesAssociateByEmailAddress")]
+        public async Task<Domain.Entity.SalesAssociate.SalesAssociate> GetSalesAssociateByEmailAddress(string emailAddress, CancellationToken cancellationToken)
+        {
+            _logger.LogTrace("Enter GetSalesAssociateByEmailAddress");
+
+            var entity = await _mediator.Send(new GetSalesAssociateByEmailQuery { EmailAddress = emailAddress }, cancellationToken);
+
+            _logger.LogTrace("Exit GetSalesAssociateByEmailAddress - SalesAssociateEntityKey:{SalesAssociateEntityKey}", entity.EntityKey);
+
+            return entity;
         }
     }
 }
