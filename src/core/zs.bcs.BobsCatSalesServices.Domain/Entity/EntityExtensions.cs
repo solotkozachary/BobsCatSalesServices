@@ -21,32 +21,35 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity
 
         private static void RemovePiiFromEntity(object obj, bool updateRecord = false, string removalReferenceId = "RemovePiiProcess")
         {
-            var properties = obj.GetType().GetProperties();
-
-            foreach (var property in properties)
+            if (obj != null)
             {
-                // Check nested properties.
-                if (property.PropertyType.IsClass && property.PropertyType != typeof(string))
-                {
-                    RemovePiiFromEntity(property.GetValue(obj));
-                }
+                var properties = obj.GetType().GetProperties();
 
-                // Remove PII from this entity.
-                if (_piiType.IsAssignableFrom(property.PropertyType))
+                foreach (var property in properties)
                 {
-                    var propertyValue = property.GetValue(obj);
-
-                    if (propertyValue is IPiiData piiEntity)
+                    // Check nested properties.
+                    if (property.PropertyType.IsClass && property.PropertyType != typeof(string))
                     {
-                        piiEntity.RemovePiiData();
+                        RemovePiiFromEntity(property.GetValue(obj));
                     }
 
-                    // If we need to persist the PII removal.
-                    if (updateRecord && propertyValue is AbstractPersonalDataEntity piiRecord)
+                    // Remove PII from this entity.
+                    if (_piiType.IsAssignableFrom(property.PropertyType))
                     {
-                        piiRecord.IsIdentificationRemoved = true;
-                        piiRecord.IdentificationRemovedOn = DateTime.Now;
-                        piiRecord.IdentificationRemovalReference = removalReferenceId;
+                        var propertyValue = property.GetValue(obj);
+
+                        if (propertyValue is IPiiData piiEntity)
+                        {
+                            piiEntity.RemovePiiData();
+                        }
+
+                        // If we need to persist the PII removal.
+                        if (updateRecord && propertyValue is AbstractPersonalDataEntity piiRecord)
+                        {
+                            piiRecord.IsIdentificationRemoved = true;
+                            piiRecord.IdentificationRemovedOn = DateTime.Now;
+                            piiRecord.IdentificationRemovalReference = removalReferenceId;
+                        }
                     }
                 }
             }

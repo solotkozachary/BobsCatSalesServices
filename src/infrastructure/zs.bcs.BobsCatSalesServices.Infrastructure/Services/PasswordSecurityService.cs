@@ -29,7 +29,7 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure.Services
         /// <param name="password">The password to be hashed.</param>
         /// <param name="cancellationToken">Propagates process cancellation signal.</param>
         /// <returns>The password data as hash/salt</returns>
-        public Task<Tuple<string, string>> GetPasswordData(string password, CancellationToken cancellationToken)
+        public Task<Tuple<byte[], byte[]>> GetPasswordData(string password, CancellationToken cancellationToken)
         {
             _logger.LogTrace("Enter GetPasswordData");
 
@@ -39,7 +39,7 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure.Services
 
             _logger.LogTrace("Exit GetPasswordData");
 
-            var result = new Tuple<string, string>(passwordHash, salt);
+            var result = new Tuple<byte[], byte[]>(passwordHash, salt);
 
             return Task.FromResult(result);
         }
@@ -51,7 +51,7 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure.Services
         /// <param name="passwordSalt"></param>
         /// <param name="cancellationToken">Propagates process cancellation signal.</param>
         /// <returns>The hashed value of the password.</returns>
-        public Task<string> GetPasswordHash(string password, string passwordSalt, CancellationToken cancellationToken)
+        public Task<byte[]> GetPasswordHash(string password, byte[] passwordSalt, CancellationToken cancellationToken)
         {
             _logger.LogTrace("Enter GetPasswordHash");
 
@@ -62,7 +62,7 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure.Services
             return Task.FromResult(result);
         }
 
-        private string GetPasswordSalt()
+        private byte[] GetPasswordSalt()
         {
             _logger.LogTrace("Enter GetPasswordSalt");
 
@@ -72,28 +72,33 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure.Services
 
             _logger.LogTrace("Exit GetPasswordSalt");
 
-            return saltBytes.ToString();
+            return saltBytes;
         }
 
-        private string HashPassword(string salt, string password)
+        private byte[] HashPassword(byte[] salt, string password)
         {
             _logger.LogTrace("Enter HashPassword");
 
-            var saltedPassword = salt + password;
+            //var saltedPassword = salt + password;
 
-            var result = string.Empty;
+            byte[] result = null;
 
-            using (SHA256 sha256 = SHA256.Create())
+            using (var sha256 = SHA256.Create())
             {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
+                byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+                byte[] combinedBytes = new byte[passwordBytes.Length + salt.Length];
 
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < hashedBytes.Length; i++)
+                // Concatenate password and salt
+                for (int i = 0; i < passwordBytes.Length; i++)
                 {
-                    builder.Append(hashedBytes[i].ToString("x2"));
+                    combinedBytes[i] = passwordBytes[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    combinedBytes[passwordBytes.Length + i] = salt[i];
                 }
 
-                result = builder.ToString();
+                result = sha256.ComputeHash(combinedBytes);
             }
 
             _logger.LogTrace("Exit HashPassword");

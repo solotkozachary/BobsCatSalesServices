@@ -101,7 +101,9 @@ namespace zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Handlers
             entity.PasswordHash = passwordData.Item1;
             entity.PasswordSalt = passwordData.Item2;
             entity.PasswordCreatedDate = DateTime.Now;
-            entity.UsedPasswordHashes = new Dictionary<string, DateTime>() { { passwordData.Item1, DateTime.Now } };
+            entity.UsedPasswordHashes = new List<byte[]>() { passwordData.Item1 };
+
+            entity.PersonalDesignation = await GetPersonalDesignation(request, entity.EntityKey, cancellationToken);
 
             entity.LastSuccessfulLogin = DateTime.Now;
 
@@ -110,7 +112,25 @@ namespace zs.bcs.BobsCatSalesServices.Application.SalesAssociate.Handlers
 
             _logger.LogTrace("Exit BuildSalesAssociate - SalesAssociateEntityKey:{SalesAssociateEntityKey}", entity.EntityKey);
 
-            return null;
+            return entity;
+        }
+
+        private async Task<PersonalDesignation> GetPersonalDesignation(CreateSalesAssociateCommand request, string salesAssociateEntityKey, CancellationToken cancellationToken)
+        {
+            _logger.LogTrace("Enter GetPersonalDesignation - SalesAssociateEntityKey:{SalesAssociateEntityKey}", salesAssociateEntityKey);
+
+            var personalDesignation = await _mediator.Send(new InitializeEntityCommand<PersonalDesignation>()
+            { RelationalEntityKey = salesAssociateEntityKey, EntityCreationSourceId = salesAssociateEntityKey });
+
+            personalDesignation.FirstName = request.FirstName;
+            personalDesignation.LastName = request.LastName;
+            personalDesignation.MiddleInitial = request.MiddleInitial;
+            personalDesignation.Prefix = request.Prefix;
+            personalDesignation.Suffix = request.Suffix;
+
+            _logger.LogTrace("Exit GetPersonalDesignation - SalesAssociateEntityKey:{SalesAssociateEntityKey}", salesAssociateEntityKey);
+
+            return personalDesignation;
         }
 
         private async Task<IEnumerable<Phone>> GetPhoneNumbers(CreateSalesAssociateCommand request, string salesAssociateEntityKey, CancellationToken cancellationToken)

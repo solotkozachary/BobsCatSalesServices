@@ -15,7 +15,7 @@ namespace zs.bcs.BobsCatSalesServices.Application.Interfaces.Services
         /// <param name="password">The password to be hashed.</param>
         /// <param name="cancellationToken">Propagates process cancellation signal.</param>
         /// <returns>The password data as hash/salt</returns>
-        Task<Tuple<string, string>> GetPasswordData(string password, CancellationToken cancellationToken);
+        Task<Tuple<byte[], byte[]>> GetPasswordData(string password, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets the hashed value of the provided password using thw provided salt value.
@@ -24,6 +24,6 @@ namespace zs.bcs.BobsCatSalesServices.Application.Interfaces.Services
         /// <param name="passwordSalt"></param>
         /// <param name="cancellationToken">Propagates process cancellation signal.</param>
         /// <returns>The hashed value of the password.</returns>
-        Task<string> GetPasswordHash(string password, string passwordSalt, CancellationToken cancellationToken);
+        Task<byte[]> GetPasswordHash(string password, byte[] passwordSalt, CancellationToken cancellationToken);
     }
 }

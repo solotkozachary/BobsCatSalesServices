@@ -42,12 +42,12 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// The sales associate's password hash.
         /// </summary>
-        public string PasswordHash { get; set; }
+        public byte[] PasswordHash { get; set; }
 
         /// <summary>
         /// Password salt value.
         /// </summary>
-        public string PasswordSalt { get; set; }
+        public byte[] PasswordSalt { get; set; }
 
         /// <summary>
         /// A flag to indicate the sales associate needs to change their password.
@@ -62,6 +62,6 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// A collection of hashes for passwords the sales associate has already used.
         /// </summary>
-        public IDictionary<string, DateTime> UsedPasswordHashes { get; set; }
+        public IEnumerable<byte[]> UsedPasswordHashes { get; set; }
     }
 }

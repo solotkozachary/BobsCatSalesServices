@@ -17,7 +17,7 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.EntityConfigurations
             builder.Property(e => e.UsedPasswordHashes)
                 .HasConversion(
                 v => JsonSerializer.Serialize(v, null as JsonSerializerOptions),
-                v => JsonSerializer.Deserialize<IDictionary<string, DateTime>>(v, null as JsonSerializerOptions)
+                v => JsonSerializer.Deserialize<List<byte[]>>(v, null as JsonSerializerOptions)
                 );
         }
     }
