@@ -24,3 +24,5 @@
 /src/core/zs.bcs.BobsCatSalesServices.Events/bin/Debug/netstandard2.1
 /src/infrastructure/zs.bcs.BobsCatSalesServices.Infrastructure/bin/Debug/netstandard2.1
 /src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.MsSql/bin/Debug/netstandard2.1
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.InMem/obj
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.InMem/bin/Debug/netstandard2.1

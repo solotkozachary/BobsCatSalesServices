@@ -34,5 +34,10 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity
         {
             EmailAddress = string.Empty;
         }
+
+        /// <summary>
+        /// EF relational entity.
+        /// </summary>
+        public SalesAssociate.SalesAssociate SalesAssociate { get; set; }
     }
 }

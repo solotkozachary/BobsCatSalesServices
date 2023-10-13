@@ -44,5 +44,10 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity
         {
             PhoneNumber = string.Empty;
         }
+
+        /// <summary>
+        /// EF relational entity.
+        /// </summary>
+        public SalesAssociate.SalesAssociate SalesAssociate { get; set; }
     }
 }
