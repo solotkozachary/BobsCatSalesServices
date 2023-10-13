@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssociate;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Services;
 using zs.bcs.BobsCatSalesServices.Events;
 using zs.bcs.BobsCatSalesServices.Infrastructure.Services;
 using zs.bcs.BobsCatSalesServices.Persistence.MsSql;
+using zs.bcs.BobsCatSalesServices.Persistence.MsSql.Services.SalesAssociate;
 
 namespace zs.bcs.BobsCatSalesServices.Infrastructure
 {
@@ -27,8 +27,8 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure
 
             services.AddScoped(typeof(IBobsCatSalesEventService<,>), typeof(BobsCatSalesEventService<,>));
 
-            // EF Registration provided as example
             services.AddDbContext<BobsCatSalesDbContext>();
+            services.AddSingleton<ISalesAssociatePersistenceQueries, SalesAssociatePersistenceQueries>();
         }
     }
 }

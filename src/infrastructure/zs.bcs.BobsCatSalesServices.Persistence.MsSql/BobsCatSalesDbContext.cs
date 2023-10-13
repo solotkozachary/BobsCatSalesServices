@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate;
@@ -45,13 +46,23 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("AppDb");
-            optionsBuilder.UseSqlServer(connectionString);
+            if (environment == "Development")
+            {
+                var connectionString = configuration.GetConnectionString("InMemAppDb");
+                optionsBuilder.UseInMemoryDatabase(connectionString);
+            }
+            else
+            {
+                var connectionString = configuration.GetConnectionString("AppDb");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
     }
 }
