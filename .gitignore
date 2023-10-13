@@ -17,3 +17,5 @@
 /src/presentation/zs.bcs.BobsCatSalesServices.RestApi/obj
 /tst/zs.bcs.BobsCatSalesServices.Application.Tests/bin/Debug/net6.0
 /tst/zs.bcs.BobsCatSalesServices.Application.Tests/obj
+/src/presentation/zs.bcs.BobsCatSalesServices.ServicesApi/bin/Debug/net6.0
+/src/presentation/zs.bcs.BobsCatSalesServices.ServicesApi/obj

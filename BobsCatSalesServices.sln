@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices.Application.Tests", "tst\zs.bcs.BobsCatSalesServices.Application.Tests\zs.bcs.BobsCatSalesServices.Application.Tests.csproj", "{51B8987D-95B2-4583-AACD-6B9446DBC55F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.ServicesApi", "src\presentation\zs.bcs.BobsCatSalesServices.ServicesApi\zs.bcs.BobsCatSalesServices.ServicesApi.csproj", "{B97B05EF-22E0-4018-A5C1-D9462D2C8219}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{B9FB1A8C-1CD3-4708-8E8F-592BF837CC7B} = {7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}
 		{EC945069-EC8E-44DA-97B0-35B149716096} = {7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F} = {50F774B6-38CC-4296-9563-E80EA6267E59}
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219} = {2DD5E82E-6882-4059-BA28-A163DAC77A7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {081D0852-1AD1-4D21-935D-7E010ABC6564}
