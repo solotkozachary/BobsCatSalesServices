@@ -6,6 +6,9 @@ using zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssoci
 
 namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.Services.SalesAssociate
 {
+    /// <summary>
+    /// An implementation of a service that performs entity queries.
+    /// </summary>
     public class SalesAssociatePersistenceQueries : ISalesAssociatePersistenceQueries
     {
         private readonly BobsCatSalesDbContext _context;

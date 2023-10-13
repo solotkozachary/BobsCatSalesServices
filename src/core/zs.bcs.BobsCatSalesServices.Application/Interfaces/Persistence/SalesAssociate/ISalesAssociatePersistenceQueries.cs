@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssociate
 {
     /// <summary>
-    /// A contract or a service that performs entity queries.
+    /// A contract for a service that performs entity queries.
     /// </summary>
     public interface ISalesAssociatePersistenceQueries
     {

@@ -28,7 +28,8 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure
             services.AddScoped(typeof(IBobsCatSalesEventService<,>), typeof(BobsCatSalesEventService<,>));
 
             services.AddDbContext<BobsCatSalesDbContext>();
-            services.AddSingleton<ISalesAssociatePersistenceQueries, SalesAssociatePersistenceQueries>();
+            services.AddScoped<ISalesAssociatePersistenceQueries, SalesAssociatePersistenceQueries>();
+            services.AddScoped<ISalesAssociatePersistenceCommands, SalesAssociatePersistenceCommands>();
         }
     }
 }
