@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Reflection;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssociate;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Services;
@@ -18,9 +19,9 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure
         /// Register services in the service pipeline.
         /// </summary>
         /// <param name="services">The service pipeline.</param>
-        public static void RegisterApplicationServices(this IServiceCollection services)
+        public static IServiceCollection RegisterApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
             services.AddTransient<IPasswordSecurityService, PasswordSecurityService>();
             services.AddTransient<IEntityKeyGenerator, EntityKeyGenerator>();
@@ -30,6 +31,8 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure
             services.AddDbContext<BobsCatSalesDbContext>();
             services.AddScoped<ISalesAssociatePersistenceQueries, SalesAssociatePersistenceQueries>();
             services.AddScoped<ISalesAssociatePersistenceCommands, SalesAssociatePersistenceCommands>();
+
+            return services;
         }
     }
 }
