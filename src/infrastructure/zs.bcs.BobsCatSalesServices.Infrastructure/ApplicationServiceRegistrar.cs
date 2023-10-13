@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 using zs.bcs.BobsCatSalesServices.Application.Interfaces.Persistence.SalesAssociate;
@@ -25,6 +26,8 @@ namespace zs.bcs.BobsCatSalesServices.Infrastructure
 
             services.AddTransient<IPasswordSecurityService, PasswordSecurityService>();
             services.AddTransient<IEntityKeyGenerator, EntityKeyGenerator>();
+
+            services.AddScoped(typeof(IRequestHandler<,>), typeof(Application.Entity.Handlers.InitializeEntityHandler<>));
 
             services.AddScoped(typeof(IBobsCatSalesEventService<,>), typeof(BobsCatSalesEventService<,>));
 

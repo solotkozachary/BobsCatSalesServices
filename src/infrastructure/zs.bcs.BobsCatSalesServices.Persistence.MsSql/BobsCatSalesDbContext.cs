@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate;
+using zs.bcs.BobsCatSalesServices.Persistence.MsSql.EntityConfigurations;
 
 namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
 {
@@ -18,15 +19,41 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Email> Emails { get; set; }
         public DbSet<Address> Addresses { get; set; }
-
+        public DbSet<PersonalDesignation> PersonalDesignations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Address>()
+                .HasKey(x => x.EntityKey)
+                ;
+            modelBuilder.Entity<Email>()
+                .HasKey(x => x.EntityKey)
+                ;
+            modelBuilder.Entity<Phone>()
+                .HasKey(x => x.EntityKey)
+                ;
+            modelBuilder.Entity<PersonalDesignation>()
+                .HasKey(x => x.EntityKey)
+                ;
+            modelBuilder.Entity<SalesAssociate>()
+                .HasKey(x => x.EntityKey)
+                ;
+
+            modelBuilder.ApplyConfiguration(new SalesAssociateConfiguration());
+
+            modelBuilder.Entity<SalesAssociate>()
+                .HasOne(x => x.PersonalDesignation)
+                .WithOne(x => x.SalesAssociate)
+                .HasForeignKey<PersonalDesignation>(x => x.RelationalEntityKey)
+                .OnDelete(DeleteBehavior.Cascade)
+                ;
+
             modelBuilder.Entity<SalesAssociate>()
                 .HasMany(e => e.PhoneNumbers)
                 .WithOne(e => e.SalesAssociate)
                 .HasForeignKey(e => e.RelationalEntityKey)
                 .HasPrincipalKey(e => e.EntityKey)
+                .OnDelete(DeleteBehavior.Cascade)
                 ;
 
             modelBuilder.Entity<SalesAssociate>()
@@ -34,6 +61,7 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
                 .WithOne(e => e.SalesAssociate)
                 .HasForeignKey(e => e.RelationalEntityKey)
                 .HasPrincipalKey(e => e.EntityKey)
+                .OnDelete(DeleteBehavior.Cascade)
                 ;
 
             modelBuilder.Entity<SalesAssociate>()
@@ -41,6 +69,7 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql
                 .WithOne(e => e.SalesAssociate)
                 .HasForeignKey(e => e.RelationalEntityKey)
                 .HasPrincipalKey(e => e.EntityKey)
+                .OnDelete(DeleteBehavior.Cascade)
                 ;
         }
 

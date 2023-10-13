@@ -2,11 +2,8 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Text.Json;
-using System.Collections;
 using System.Collections.Generic;
-using zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity;
 using zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate;
-using System.Text.Json.Serialization;
 
 namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.EntityConfigurations
 {
@@ -19,12 +16,9 @@ namespace zs.bcs.BobsCatSalesServices.Persistence.MsSql.EntityConfigurations
         {
             builder.Property(e => e.UsedPasswordHashes)
                 .HasConversion(
-                v => JsonSerializer.Serialize(v, null),
-                v => JsonSerializer.Deserialize<IDictionary<string, DateTime>>(v, null)//JsonSerializer.Deserialize<IEnumerable<KeyValuePair<string, DateTime>>>(v)
+                v => JsonSerializer.Serialize(v, null as JsonSerializerOptions),
+                v => JsonSerializer.Deserialize<IDictionary<string, DateTime>>(v, null as JsonSerializerOptions)
                 );
-
-
-
         }
     }
 }
