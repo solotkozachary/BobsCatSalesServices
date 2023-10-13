@@ -62,5 +62,10 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.EntityIdentity
             AddressLineTwo = string.Empty;
             Unit = string.Empty;
         }
+
+        /// <summary>
+        /// EF relational entity.
+        /// </summary>
+        public virtual SalesAssociate.SalesAssociate SalesAssociate { get; set; }
     }
 }

@@ -12,14 +12,15 @@ namespace zs.bcs.BobsCatSalesServices.Application.Entity.Handlers
     /// <summary>
     /// The handler responsible for initializing a new entity.
     /// </summary>
-    public class InitializeEntityHandler<T> : IRequestHandler<InitializeEntityCommand<T>, T>
+    public class InitializeEntityHandler<U, T> : IRequestHandler<InitializeEntityCommand<T>, T>
+        where U : IRequest<T>
         where T : Domain.Entity.BobsCatSalesEntity
     {
-        private readonly ILogger<InitializeEntityHandler<T>> _logger;
+        private readonly ILogger<InitializeEntityHandler<U, T>> _logger;
         private readonly IEntityKeyGenerator _keyGenerator;
 
         public InitializeEntityHandler(
-            ILogger<InitializeEntityHandler<T>> logger,
+            ILogger<InitializeEntityHandler<U, T>> logger,
             IEntityKeyGenerator keyGenerator
             )
         {
@@ -37,7 +38,7 @@ namespace zs.bcs.BobsCatSalesServices.Application.Entity.Handlers
             {
                 var entity = (Domain.Entity.BobsCatSalesEntity)Activator.CreateInstance(typeof(T));
 
-                var creationSourceId = !string.IsNullOrWhiteSpace(request.EntityCreationSourceId) ? request.EntityCreationSourceId : nameof(InitializeEntityHandler<T>);
+                var creationSourceId = !string.IsNullOrWhiteSpace(request.EntityCreationSourceId) ? request.EntityCreationSourceId : nameof(InitializeEntityHandler<U, T>);
 
                 entity.EntityKey = await _keyGenerator.GenerateKey(cancellationToken);
                 entity.RelationalEntityKey = request.RelationalEntityKey;
@@ -63,7 +64,7 @@ namespace zs.bcs.BobsCatSalesServices.Application.Entity.Handlers
             _logger.LogInformation("A new Entity of type {EntityType} and with EntityKey {EntityKey} has been successfully created.",
                 typeof(T), result.EntityKey);
 
-            _logger.LogTrace("Exit InitializeEntityHandler - EntityKey:{EntityKey}   EntityType:{EntityType}", "", typeof(T));
+            _logger.LogTrace("Exit InitializeEntityHandler - EntityKey:{EntityKey}   EntityType:{EntityType}", result.EntityKey, typeof(T));
 
             return result;
         }

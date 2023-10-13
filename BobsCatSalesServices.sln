@@ -19,13 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices.Events", "src\core\zs.bcs.BobsCatSalesServices.Events\zs.bcs.BobsCatSalesServices.Events.csproj", "{C46DF83D-AE5A-43D8-B677-F165EA766D44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Infrastructure", "src\infrastructure\zs.bcs.BobsCatSalesServices.Infrastructure\zs.bcs.BobsCatSalesServices.Infrastructure.csproj", "{B9FB1A8C-1CD3-4708-8E8F-592BF837CC7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices.Infrastructure", "src\infrastructure\zs.bcs.BobsCatSalesServices.Infrastructure\zs.bcs.BobsCatSalesServices.Infrastructure.csproj", "{B9FB1A8C-1CD3-4708-8E8F-592BF837CC7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Persistence.MsSql", "src\infrastructure\zs.bcs.BobsCatSalesServices.Persistence.MsSql\zs.bcs.BobsCatSalesServices.Persistence.MsSql.csproj", "{EC945069-EC8E-44DA-97B0-35B149716096}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices.Persistence.MsSql", "src\infrastructure\zs.bcs.BobsCatSalesServices.Persistence.MsSql\zs.bcs.BobsCatSalesServices.Persistence.MsSql.csproj", "{EC945069-EC8E-44DA-97B0-35B149716096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.RestApi", "src\presentation\zs.bcs.BobsCatSalesServices.RestApi\zs.bcs.BobsCatSalesServices.RestApi.csproj", "{471373D6-314D-4609-93F4-81A6A86EA74F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zs.bcs.BobsCatSalesServices.Application.Tests", "tst\zs.bcs.BobsCatSalesServices.Application.Tests\zs.bcs.BobsCatSalesServices.Application.Tests.csproj", "{51B8987D-95B2-4583-AACD-6B9446DBC55F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.Application.Tests", "tst\zs.bcs.BobsCatSalesServices.Application.Tests\zs.bcs.BobsCatSalesServices.Application.Tests.csproj", "{51B8987D-95B2-4583-AACD-6B9446DBC55F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zs.bcs.BobsCatSalesServices.ServicesApi", "src\presentation\zs.bcs.BobsCatSalesServices.ServicesApi\zs.bcs.BobsCatSalesServices.ServicesApi.csproj", "{B97B05EF-22E0-4018-A5C1-D9462D2C8219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,14 +53,14 @@ Global
 		{EC945069-EC8E-44DA-97B0-35B149716096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC945069-EC8E-44DA-97B0-35B149716096}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC945069-EC8E-44DA-97B0-35B149716096}.Release|Any CPU.Build.0 = Release|Any CPU
-		{471373D6-314D-4609-93F4-81A6A86EA74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{471373D6-314D-4609-93F4-81A6A86EA74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{471373D6-314D-4609-93F4-81A6A86EA74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{471373D6-314D-4609-93F4-81A6A86EA74F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,8 +74,8 @@ Global
 		{C46DF83D-AE5A-43D8-B677-F165EA766D44} = {0DA0F092-B135-4527-8D10-A98E2314D149}
 		{B9FB1A8C-1CD3-4708-8E8F-592BF837CC7B} = {7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}
 		{EC945069-EC8E-44DA-97B0-35B149716096} = {7CF32BA8-C83E-42E7-8330-8E92CD3DBBFB}
-		{471373D6-314D-4609-93F4-81A6A86EA74F} = {2DD5E82E-6882-4059-BA28-A163DAC77A7C}
 		{51B8987D-95B2-4583-AACD-6B9446DBC55F} = {50F774B6-38CC-4296-9563-E80EA6267E59}
+		{B97B05EF-22E0-4018-A5C1-D9462D2C8219} = {2DD5E82E-6882-4059-BA28-A163DAC77A7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {081D0852-1AD1-4D21-935D-7E010ABC6564}

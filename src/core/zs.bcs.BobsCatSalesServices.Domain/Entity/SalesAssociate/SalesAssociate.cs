@@ -12,22 +12,22 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// The person's name.
         /// </summary>
-        public PersonalDesignation PersonalDesignation { get; set; }
+        public virtual PersonalDesignation PersonalDesignation { get; set; }
 
         /// <summary>
         /// The person's addresses.
         /// </summary>
-        public IEnumerable<Address> Addresses { get; set; }
+        public virtual IEnumerable<Address> Addresses { get; set; }
 
         /// <summary>
         /// The person's phone numbers.
         /// </summary>
-        public IEnumerable<Phone> PhoneNumbers { get; set; }
+        public virtual IEnumerable<Phone> PhoneNumbers { get; set; }
 
         /// <summary>
         /// The person's email addresses.
         /// </summary>
-        public IEnumerable<Email> EmailAddresses { get; set; }
+        public virtual IEnumerable<Email> EmailAddresses { get; set; }
 
         /// <summary>
         /// The last time the sales associate successfully logged into the system.
@@ -42,12 +42,12 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// The sales associate's password hash.
         /// </summary>
-        public string PasswordHash { get; set; }
+        public byte[] PasswordHash { get; set; }
 
         /// <summary>
         /// Password salt value.
         /// </summary>
-        public string PasswordSalt { get; set; }
+        public byte[] PasswordSalt { get; set; }
 
         /// <summary>
         /// A flag to indicate the sales associate needs to change their password.
@@ -62,6 +62,6 @@ namespace zs.bcs.BobsCatSalesServices.Domain.Entity.SalesAssociate
         /// <summary>
         /// A collection of hashes for passwords the sales associate has already used.
         /// </summary>
-        public IDictionary<string, DateTime> UsedPasswordHashes { get; set; }
+        public IEnumerable<byte[]> UsedPasswordHashes { get; set; }
     }
 }

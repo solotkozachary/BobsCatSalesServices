@@ -20,7 +20,8 @@ namespace zs.bcs.BobsCatSalesServices.Events
         {
             var eventData = applicationEvent.EventPayload;
 
-            eventData.RemovePersonalIdentifiableInformation();
+            // Cyclic entity reference configured to build out EF DBContext currently causing issues.
+            //eventData.RemovePersonalIdentifiableInformation();
 
             await PublishEvent(applicationEvent, cancellationToken);
         }

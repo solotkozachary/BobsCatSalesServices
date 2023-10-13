@@ -17,3 +17,12 @@
 /src/presentation/zs.bcs.BobsCatSalesServices.RestApi/obj
 /tst/zs.bcs.BobsCatSalesServices.Application.Tests/bin/Debug/net6.0
 /tst/zs.bcs.BobsCatSalesServices.Application.Tests/obj
+/src/presentation/zs.bcs.BobsCatSalesServices.ServicesApi/bin/Debug/net6.0
+/src/presentation/zs.bcs.BobsCatSalesServices.ServicesApi/obj
+/src/core/zs.bcs.BobsCatSalesServices.Application/bin/Debug/netstandard2.1
+/src/core/zs.bcs.BobsCatSalesServices.Domain/bin/Debug/netstandard2.1
+/src/core/zs.bcs.BobsCatSalesServices.Events/bin/Debug/netstandard2.1
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Infrastructure/bin/Debug/netstandard2.1
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.MsSql/bin/Debug/netstandard2.1
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.InMem/obj
+/src/infrastructure/zs.bcs.BobsCatSalesServices.Persistence.InMem/bin/Debug/netstandard2.1
